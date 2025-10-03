@@ -2,6 +2,6 @@ services:
   frontend:
     build: .
     ports:
-      - "80:80"
+      - "3333:3333"
     restart: unless-stopped
     container_name: horizon-frontend
