@@ -3,9 +3,18 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    ports:
-      - "3333:3333"
     restart: unless-stopped
     container_name: horizon-frontend
     environment:
       - NODE_ENV=production
+    networks:
+      - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.horizon.rule=Host(`localhost`) || Host(`tu-dominio.com`)"
+      - "traefik.http.services.horizon.loadbalancer.server.port=3333"
+      - "traefik.docker.network=traefik"
+
+networks:
+  traefik:
+    external: true
