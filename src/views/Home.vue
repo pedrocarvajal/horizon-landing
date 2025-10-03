@@ -1,5 +1,5 @@
 <template>
-  <div>hola mundo</div>
+  <div>Under construction...</div>
 </template>
 
 <script setup></script>
